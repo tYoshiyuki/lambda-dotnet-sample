@@ -17,6 +17,8 @@ namespace LambdaKinesisSample
     public class Function
     {
         private readonly string _streamName = "sample-kinesis-stream";
+
+        // https://github.com/mhart/kinesalite
         private readonly string _serviceURL = "http://localhost:4567/";
 
         public async Task FunctionHandler(KinesisEvent kinesisEvent, ILambdaContext context)
