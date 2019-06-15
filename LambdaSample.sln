@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaKinesisSample", "Lamb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StepFunctionsSample", "StepFunctionsSample\StepFunctionsSample.csproj", "{DE3C237D-71B2-4881-A92A-EF4C60ACA9BD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaFirehoseSample", "LambdaFirehoseSample\LambdaFirehoseSample.csproj", "{4C649BBE-C31B-4670-923A-57B8C215F702}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DE3C237D-71B2-4881-A92A-EF4C60ACA9BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE3C237D-71B2-4881-A92A-EF4C60ACA9BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE3C237D-71B2-4881-A92A-EF4C60ACA9BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C649BBE-C31B-4670-923A-57B8C215F702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C649BBE-C31B-4670-923A-57B8C215F702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C649BBE-C31B-4670-923A-57B8C215F702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C649BBE-C31B-4670-923A-57B8C215F702}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

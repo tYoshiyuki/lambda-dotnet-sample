@@ -1,13 +1,12 @@
-using System;
-using System.Collections;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Amazon.Kinesis;
 using Amazon.Kinesis.Model;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.KinesisEvents;
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -21,6 +20,13 @@ namespace LambdaKinesisSample
         // https://github.com/mhart/kinesalite
         private readonly string _serviceURL = "http://localhost:4567/";
 
+        /// <summary>
+        /// Kinesis Stream からイベントを受け取り、Kinesis Streamへデータを書き込む関数です
+        /// ローカル開発環境として Kinesalite を使用しています
+        /// </summary>
+        /// <param name="kinesisEvent"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public async Task FunctionHandler(KinesisEvent kinesisEvent, ILambdaContext context)
         {
             context.Logger.LogLine($"Beginning to process {kinesisEvent.Records.Count} records...");
@@ -36,7 +42,8 @@ namespace LambdaKinesisSample
                 context.Logger.LogLine(recordData);
             }
 
-            // Kinesis Stream の作成
+            #region ローカル開発用のコード
+            // Kinesis Stream の作成, 通常は AWSコンソール より作成する
             var request = new CreateStreamRequest {
                 ShardCount = 1,
                 StreamName = _streamName
@@ -51,9 +58,10 @@ namespace LambdaKinesisSample
             {
                 await client.CreateStreamAsync(request);
             }
+            #endregion
 
-            // Kinesis に対してデータを書き込む
-            foreach(var i in Enumerable.Range(1, 10))
+            // Kinesis Stream に対してデータを書き込む
+            foreach (var i in Enumerable.Range(1, 10))
             {
                 using (var memory = new MemoryStream(Encoding.UTF8.GetBytes($"Put Data:{i}")))
                 {
