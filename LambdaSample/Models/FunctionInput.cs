@@ -1,4 +1,4 @@
-﻿namespace LambdaSample
+﻿namespace LambdaSample.Models
 {
     public class FunctionInput
     {

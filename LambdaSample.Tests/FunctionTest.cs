@@ -1,5 +1,6 @@
 using Amazon.Lambda.TestUtilities;
 using ChainingAssertion;
+using LambdaSample.Models;
 using Xunit;
 
 namespace LambdaSample.Tests

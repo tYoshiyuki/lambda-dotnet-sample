@@ -1,19 +1,23 @@
 using Amazon.Lambda.Core;
+using LambdaSample.CommonLibrary;
+using LambdaSample.Models;
+using LambdaSample.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace LambdaSample
 {
-    public class Function
-    {        
-        /// <summary>
-        /// “ü—Íƒpƒ‰ƒ[ƒ^‚ğ•Ô‹p‚·‚éŠÖ”‚Å‚·
-        /// </summary>
-        /// <param name="input"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public string FunctionHandler(FunctionInput input, ILambdaContext context)
+    public class Function : InOutFunctionBase<FunctionInput, string>
+    {
+        public Function()
         {
-            return input?.Key1;
+            InitializeFunction();
+        }
+
+        protected override void ConfigureService(IServiceCollection services)
+        {
+            services.AddSingleton<IHelloService, HelloService>();
+            services.AddSingleton<IInOutFunctionHandler<FunctionInput, string>, SampleInOutFunctionHandler>();
         }
     }
 }
