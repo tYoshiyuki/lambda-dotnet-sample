@@ -45,13 +45,8 @@ namespace LambdaSample.CommonLibrary
         /// ロガーの設定を行います。
         /// </summary>
         /// <param name="logging">logging</param>
-        public static void ConfigureLogger(ILoggingBuilder logging)
+        protected void ConfigureLogger(ILoggingBuilder logging)
         {
-            if (logging == null)
-            {
-                throw new ArgumentNullException(nameof(logging));
-            }
-
             var loggerOptions = new LambdaLoggerOptions
             {
                 IncludeCategory = true,
