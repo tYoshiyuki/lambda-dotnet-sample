@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace LambdaSample
 {
+    /// <summary>
+    /// サンプルのLambda関数です。
+    /// </summary>
     public class Function : InOutFunctionBase<FunctionInput, string>
     {
         public Function()
@@ -14,10 +17,14 @@ namespace LambdaSample
             InitializeFunction();
         }
 
+        /// <summary>
+        /// サービスの設定を行います。
+        /// </summary>
+        /// <param name="services">services</param>
         protected override void ConfigureService(IServiceCollection services)
         {
             services.AddSingleton<IHelloService, HelloService>();
-            services.AddSingleton<IInOutFunctionHandler<FunctionInput, string>, SampleInOutFunctionHandler>();
+            services.AddSingleton<IInOutFunctionHandlerCore<FunctionInput, string>, SampleInOutFunctionHandlerCore>();
         }
     }
 }

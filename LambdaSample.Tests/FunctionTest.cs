@@ -8,7 +8,7 @@ namespace LambdaSample.Tests
     public class FunctionTest
     {
         [Fact]
-        public void TestToUpperFunction()
+        public void FunctionHandler_ê≥èÌån()
         {
             // Arrange
             var function = new Function();
@@ -18,7 +18,7 @@ namespace LambdaSample.Tests
             var result = function.FunctionHandler(new FunctionInput { Key1 = "hello world" }, context);
 
             // Assert
-            result.Is("hello world");
+            result.Is("hello world And Hello World!");
         }
     }
 }
