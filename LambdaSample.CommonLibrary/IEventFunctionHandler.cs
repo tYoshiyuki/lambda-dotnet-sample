@@ -7,7 +7,7 @@ namespace LambdaSample.CommonLibrary
     /// イベント処理を行うLambda関数のハンドラーのインターフェースです。
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IEventFunctionHandlerCore<in T>
+    public interface IEventFunctionHandler<in T>
     {
         Task Handle(T input, ILambdaContext context);
     }

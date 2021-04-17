@@ -13,25 +13,25 @@ namespace LambdaSample.CommonLibrary
     public abstract class InOutFunctionBase<TInput, TOutput> : AbstractFunctionBase
     {
         /// <summary>
-        /// 関数のハンドラーです。エントリーポイントになります。
+        /// 関数のエントリーポイントです。
         /// </summary>
         /// <param name="input">input</param>
         /// <param name="context">context</param>
         /// <returns></returns>
-        public TOutput FunctionHandler(TInput input, ILambdaContext context)
+        public TOutput EntryPoint(TInput input, ILambdaContext context)
         {
-            LambdaLogger.Log("Start FunctionHandler.");
+            LambdaLogger.Log("Start EntryPoint.");
 
             using var scope = ServiceProvider.CreateScope();
-            var handler = scope.ServiceProvider.GetService<IInOutFunctionHandlerCore<TInput, TOutput>>();
+            var handler = scope.ServiceProvider.GetService<IInOutFunctionHandler<TInput, TOutput>>();
 
             if (handler == null)
             {
-                LambdaLogger.Log("FunctionHandler failed. FunctionHandler is nothing.");
-                throw new InvalidOperationException("Handle failed. FunctionHandler is nothing.");
+                LambdaLogger.Log("EntryPoint failed. FunctionHandler is nothing.");
+                throw new InvalidOperationException("EntryPoint failed. FunctionHandler is nothing.");
             }
 
-            LambdaLogger.Log("Execute FunctionHandler.");
+            LambdaLogger.Log("Execute EntryPoint.");
             LambdaLogger.Log("Context: " + JsonConvert.SerializeObject(context));
             LambdaLogger.Log("Input: " + JsonConvert.SerializeObject(input));
 

@@ -15,5 +15,5 @@
   "function-runtime": "dotnetcore3.1",
   "function-memory-size": 256,
   "function-timeout": 30,
-  "function-handler": "LambdaSample::LambdaSample.Function::FunctionHandler"
+  "function-handler": "LambdaSample::LambdaSample.SampleFunction::EntryPoint"
 }

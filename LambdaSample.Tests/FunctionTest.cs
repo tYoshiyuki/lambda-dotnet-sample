@@ -8,14 +8,14 @@ namespace LambdaSample.Tests
     public class FunctionTest
     {
         [Fact]
-        public void FunctionHandler_ê≥èÌån()
+        public void FunctionHandler_Ê≠£Â∏∏Á≥ª()
         {
             // Arrange
-            var function = new Function();
+            var function = new SampleFunction();
             var context = new TestLambdaContext();
 
             // Act
-            var result = function.FunctionHandler(new FunctionInput { Key1 = "hello world" }, context);
+            var result = function.EntryPoint(new SampleFunctionInput { Key1 = "hello world" }, context);
 
             // Assert
             result.Is("hello world And Hello World!");
