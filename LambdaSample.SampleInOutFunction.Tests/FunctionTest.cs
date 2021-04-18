@@ -1,13 +1,12 @@
 using Amazon.Lambda.TestUtilities;
-using ChainingAssertion;
-using LambdaSample.InOutFunction.Models;
-using Xunit;
+using LambdaSample.SampleInOutFunction.Models;
+using NUnit.Framework;
 
-namespace LambdaSample.InOutFunction.Tests
+namespace LambdaSample.SampleInOutFunction.Tests
 {
     public class FunctionTest
     {
-        [Fact]
+        [Test]
         public void FunctionHandler_正常系()
         {
             // Arrange
@@ -18,7 +17,7 @@ namespace LambdaSample.InOutFunction.Tests
             var result = function.EntryPoint(new SampleFunctionInput { Key1 = "hello world" }, context);
 
             // Assert
-            result.Is("hello world And Hello World!");
+            Assert.That(result, Is.EqualTo("hello world And Hello World!"));
         }
     }
 }

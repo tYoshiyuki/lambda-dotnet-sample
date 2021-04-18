@@ -1,12 +1,11 @@
-﻿using ChainingAssertion;
-using LambdaSample.InOutFunction.Services;
-using Xunit;
+﻿using LambdaSample.SampleInOutFunction.Services;
+using NUnit.Framework;
 
-namespace LambdaSample.InOutFunction.Tests
+namespace LambdaSample.SampleInOutFunction.Tests
 {
     public class HelloServiceTest
     {
-        [Fact]
+        [Test]
         public void Greeting_正常系()
         {
             // Arrange
@@ -16,7 +15,7 @@ namespace LambdaSample.InOutFunction.Tests
             var result = service.Greeting();
 
             // Assert
-            result.Is("Hello World!");
+            Assert.That(result, Is.EqualTo("Hello World!"));
         }
     }
 }

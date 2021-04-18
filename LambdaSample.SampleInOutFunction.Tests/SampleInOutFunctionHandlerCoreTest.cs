@@ -1,15 +1,14 @@
 ﻿using Amazon.Lambda.TestUtilities;
-using ChainingAssertion;
-using LambdaSample.InOutFunction.Models;
-using LambdaSample.InOutFunction.Services;
+using LambdaSample.SampleInOutFunction.Models;
+using LambdaSample.SampleInOutFunction.Services;
 using Moq;
-using Xunit;
+using NUnit.Framework;
 
-namespace LambdaSample.InOutFunction.Tests
+namespace LambdaSample.SampleInOutFunction.Tests
 {
     public class SampleInOutFunctionHandlerCoreTest
     {
-        [Fact]
+        [Test]
         public void Handle_正常系()
         {
             // Arrange
@@ -22,7 +21,7 @@ namespace LambdaSample.InOutFunction.Tests
             var result = handler.Handle(new SampleFunctionInput {Key1 = "hello world"}, context);
 
             // Assert
-            result.Is("hello world And Hello Mock!");
+            Assert.That(result, Is.EqualTo("hello world And Hello Mock!"));
         }
     }
 }

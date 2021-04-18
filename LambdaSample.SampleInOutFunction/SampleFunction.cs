@@ -1,11 +1,13 @@
 using Amazon.Lambda.Core;
 using LambdaSample.CommonLibrary;
-using LambdaSample.InOutFunction.Models;
-using LambdaSample.InOutFunction.Services;
+using LambdaSample.SampleInOutFunction.Models;
+using LambdaSample.SampleInOutFunction.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
-namespace LambdaSample.InOutFunction
+// Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
+[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
+
+namespace LambdaSample.SampleInOutFunction
 {
     /// <summary>
     /// ÉTÉìÉvÉãÇÃLambdaä÷êîÇ≈Ç∑ÅB

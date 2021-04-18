@@ -1,4 +1,4 @@
-﻿namespace LambdaSample.InOutFunction.Services
+﻿namespace LambdaSample.SampleInOutFunction.Services
 {
     public interface IHelloService
     {
