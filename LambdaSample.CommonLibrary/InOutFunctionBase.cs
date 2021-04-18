@@ -35,7 +35,17 @@ namespace LambdaSample.CommonLibrary
             LambdaLogger.Log("Context: " + JsonConvert.SerializeObject(context));
             LambdaLogger.Log("Input: " + JsonConvert.SerializeObject(input));
 
-            return handler.Handle(input, context);
+            try
+            {
+                return handler.Handle(input, context);
+            }
+            catch (Exception ex)
+            {
+                LambdaLogger.Log("EntryPoint failed.");
+                LambdaLogger.Log(ex.Message);
+                LambdaLogger.Log(ex.StackTrace);
+                throw;
+            }
         }
     }
 }

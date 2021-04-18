@@ -18,7 +18,7 @@ namespace LambdaSample.SampleInOutFunction.Tests
             var context = new TestLambdaContext();
 
             // Act
-            var result = handler.Handle(new SampleFunctionInput {Key1 = "hello world"}, context);
+            var result = handler.Handle(new SampleInOutFunctionInput {Key1 = "hello world"}, context);
 
             // Assert
             Assert.That(result, Is.EqualTo("hello world And Hello Mock!"));

@@ -10,11 +10,11 @@ namespace LambdaSample.SampleInOutFunction.Tests
         public void FunctionHandler_正常系()
         {
             // Arrange
-            var function = new SampleFunction();
+            var function = new SampleInOutFunction();
             var context = new TestLambdaContext();
 
             // Act
-            var result = function.EntryPoint(new SampleFunctionInput { Key1 = "hello world" }, context);
+            var result = function.EntryPoint(new SampleInOutFunctionInput { Key1 = "hello world" }, context);
 
             // Assert
             Assert.That(result, Is.EqualTo("hello world And Hello World!"));

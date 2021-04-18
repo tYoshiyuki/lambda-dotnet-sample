@@ -6,11 +6,11 @@
     "All the command line options for the Lambda command can be specified in this file."
   ],
   "profile": "default",
-  "region": "us-west-2",
+  "region": "local",
   "configuration": "Release",
   "framework": "netcoreapp3.1",
   "function-runtime": "dotnetcore3.1",
   "function-memory-size": 256,
   "function-timeout": 30,
-  "function-handler": "LambdaSample.EventFunctionWriteDynamoDb::LambdaSample.EventFunctionWriteDynamoDb.Function::FunctionHandler"
+  "function-handler": "LambdaSample.PutDynamoDbEventFunction::LambdaSample.PutDynamoDbEventFunction.PutDynamoDbEventFunction::EntryPoint"
 }

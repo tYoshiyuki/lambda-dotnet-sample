@@ -12,9 +12,9 @@ namespace LambdaSample.SampleInOutFunction
     /// <summary>
     /// ÉTÉìÉvÉãÇÃLambdaä÷êîÇ≈Ç∑ÅB
     /// </summary>
-    public class SampleFunction : InOutFunctionBase<SampleFunctionInput, string>
+    public class SampleInOutFunction : InOutFunctionBase<SampleInOutFunctionInput, string>
     {
-        public SampleFunction()
+        public SampleInOutFunction()
         {
             InitializeFunction();
         }
@@ -26,7 +26,7 @@ namespace LambdaSample.SampleInOutFunction
         protected override void ConfigureService(IServiceCollection services)
         {
             services.AddSingleton<IHelloService, HelloService>();
-            services.AddSingleton<IInOutFunctionHandler<SampleFunctionInput, string>, SampleInOutFunctionHandler>();
+            services.AddSingleton<IInOutFunctionHandler<SampleInOutFunctionInput, string>, SampleInOutFunctionHandler>();
         }
     }
 }

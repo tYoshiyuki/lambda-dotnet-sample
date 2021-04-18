@@ -8,7 +8,7 @@ namespace LambdaSample.SampleInOutFunction
     /// <summary>
     /// サンプルのLambda関数のハンドラーです。
     /// </summary>
-    public class SampleInOutFunctionHandler : IInOutFunctionHandler<SampleFunctionInput, string>
+    public class SampleInOutFunctionHandler : IInOutFunctionHandler<SampleInOutFunctionInput, string>
     {
         private readonly IHelloService _service;
         public SampleInOutFunctionHandler(IHelloService service)
@@ -16,7 +16,7 @@ namespace LambdaSample.SampleInOutFunction
             _service = service;
         }
 
-        public string Handle(SampleFunctionInput input, ILambdaContext context)
+        public string Handle(SampleInOutFunctionInput input, ILambdaContext context)
         {
             // TODO ビジネスロジックを呼び出す場合は、コンストラクタインジェクションにより取得してください。
             return $"{input?.Key1} And {_service.Greeting()}";

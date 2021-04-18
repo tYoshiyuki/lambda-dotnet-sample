@@ -32,6 +32,18 @@ namespace LambdaSample.CommonLibrary.Tests
                 Throws.Exception.TypeOf<InvalidOperationException>()
                     .And.Message.EqualTo("EntryPoint failed. FunctionHandler is nothing."));
         }
+
+        [Test]
+        public void EntryPoint_異常系_FunctionHandler実行時に例外が発生()
+        {
+            // Arrange
+            var function = new SampleExceptionEventFunction();
+
+            // Act・Assert
+            Assert.That(() => function.EntryPoint("hello world.", new TestLambdaContext()),
+                Throws.Exception.TypeOf<Exception>()
+                    .And.Message.EqualTo("This is test error."));
+        }
     }
 
     /// <summary>
@@ -66,7 +78,7 @@ namespace LambdaSample.CommonLibrary.Tests
     }
 
     /// <summary>
-    /// テスト用 (異常系) のLambda関数クラスです。
+    /// テスト用 (異常系・FunctionHandlerが未登録) のLambda関数クラスです。
     /// </summary>
     class SampleNoHandlerEventFunction : EventFunctionBase<string>
     {
@@ -75,6 +87,35 @@ namespace LambdaSample.CommonLibrary.Tests
             InitializeFunction();
         }
 
-        protected override void ConfigureService(IServiceCollection services) { }
+        protected override void ConfigureService(IServiceCollection services)
+        {
+        }
+    }
+
+    /// <summary>
+    /// テスト用 (異常系) のFunctionHandlerクラスです。
+    /// </summary>
+    class SampleExceptionEventFunctionHandler : IEventFunctionHandler<string>
+    {
+        public void Handle(string input, ILambdaContext context)
+        {
+            throw new Exception("This is test error.");
+        }
+    }
+
+    /// <summary>
+    /// テスト用 (異常系・FunctionHandlerの実行時に例外が発生) のLambda関数クラスです。
+    /// </summary>
+    class SampleExceptionEventFunction : EventFunctionBase<string>
+    {
+        public SampleExceptionEventFunction()
+        {
+            InitializeFunction();
+        }
+
+        protected override void ConfigureService(IServiceCollection services)
+        {
+            services.AddTransient<IEventFunctionHandler<string>, SampleExceptionEventFunctionHandler>();
+        }
     }
 }

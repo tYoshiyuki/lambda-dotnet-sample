@@ -38,12 +38,12 @@ If already installed check if new version is available.
 
 Execute unit tests
 ```
-    cd "LambdaSample.EventFunctionWriteDynamoDb/test/LambdaSample.EventFunctionWriteDynamoDb.Tests"
+    cd "LambdaSample.PutDynamoDbEventFunction/test/LambdaSample.PutDynamoDbEventFunction.Tests"
     dotnet test
 ```
 
 Deploy function to AWS Lambda
 ```
-    cd "LambdaSample.EventFunctionWriteDynamoDb/src/LambdaSample.EventFunctionWriteDynamoDb"
+    cd "LambdaSample.PutDynamoDbEventFunction/src/LambdaSample.PutDynamoDbEventFunction"
     dotnet lambda deploy-function
 ```
