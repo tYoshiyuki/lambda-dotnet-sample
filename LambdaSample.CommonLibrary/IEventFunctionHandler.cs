@@ -9,6 +9,6 @@ namespace LambdaSample.CommonLibrary
     /// <typeparam name="T"></typeparam>
     public interface IEventFunctionHandler<in T>
     {
-        Task Handle(T input, ILambdaContext context);
+        void Handle(T input, ILambdaContext context);
     }
 }

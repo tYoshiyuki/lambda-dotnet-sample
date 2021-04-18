@@ -27,6 +27,9 @@ namespace LambdaSample.CommonLibrary.Tests
         }
     }
 
+    /// <summary>
+    /// テスト用のLambda関数クラスです。
+    /// </summary>
     class SampleAbstractFunctionBase: AbstractFunctionBase
     {
         public void Initialize()
@@ -50,5 +53,8 @@ namespace LambdaSample.CommonLibrary.Tests
         }
     }
 
+    /// <summary>
+    /// テスト用のクラスです。
+    /// </summary>
     class Sample { }
 }
