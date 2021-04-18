@@ -6,7 +6,7 @@ using NUnit.Framework;
 
 namespace LambdaSample.SampleInOutFunction.Tests
 {
-    public class SampleInOutFunctionHandlerCoreTest
+    public class SampleInOutFunctionHandlerTest
     {
         [Test]
         public void Handle_正常系()
