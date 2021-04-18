@@ -1,11 +1,11 @@
 using Amazon.Lambda.Core;
 using LambdaSample.CommonLibrary;
-using LambdaSample.Models;
-using LambdaSample.Services;
+using LambdaSample.InOutFunction.Models;
+using LambdaSample.InOutFunction.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
-namespace LambdaSample
+namespace LambdaSample.InOutFunction
 {
     /// <summary>
     /// ÉTÉìÉvÉãÇÃLambdaä÷êîÇ≈Ç∑ÅB

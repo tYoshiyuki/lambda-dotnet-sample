@@ -1,9 +1,9 @@
 ﻿using Amazon.Lambda.Core;
 using LambdaSample.CommonLibrary;
-using LambdaSample.Models;
-using LambdaSample.Services;
+using LambdaSample.InOutFunction.Models;
+using LambdaSample.InOutFunction.Services;
 
-namespace LambdaSample
+namespace LambdaSample.InOutFunction
 {
     /// <summary>
     /// サンプルのLambda関数のハンドラーです。

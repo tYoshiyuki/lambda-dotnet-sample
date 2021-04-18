@@ -15,6 +15,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LambdaSample\LambdaSample.csproj" />
+    <ProjectReference Include="..\LambdaSample.InOutFunction\LambdaSample.InOutFunction.csproj" />
   </ItemGroup>
 </Project>

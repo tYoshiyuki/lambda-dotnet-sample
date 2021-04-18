@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace LambdaSample.Services
+﻿namespace LambdaSample.InOutFunction.Services
 {
     public interface IHelloService
     {

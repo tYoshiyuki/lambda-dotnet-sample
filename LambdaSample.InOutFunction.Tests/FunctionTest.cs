@@ -1,9 +1,9 @@
 using Amazon.Lambda.TestUtilities;
 using ChainingAssertion;
-using LambdaSample.Models;
+using LambdaSample.InOutFunction.Models;
 using Xunit;
 
-namespace LambdaSample.Tests
+namespace LambdaSample.InOutFunction.Tests
 {
     public class FunctionTest
     {

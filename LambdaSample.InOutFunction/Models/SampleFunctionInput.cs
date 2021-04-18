@@ -1,4 +1,4 @@
-﻿namespace LambdaSample.Models
+﻿namespace LambdaSample.InOutFunction.Models
 {
     public class SampleFunctionInput
     {

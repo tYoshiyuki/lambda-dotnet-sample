@@ -1,8 +1,8 @@
 ﻿using ChainingAssertion;
-using LambdaSample.Services;
+using LambdaSample.InOutFunction.Services;
 using Xunit;
 
-namespace LambdaSample.Tests
+namespace LambdaSample.InOutFunction.Tests
 {
     public class HelloServiceTest
     {

@@ -1,11 +1,11 @@
 ﻿using Amazon.Lambda.TestUtilities;
 using ChainingAssertion;
-using LambdaSample.Models;
-using LambdaSample.Services;
+using LambdaSample.InOutFunction.Models;
+using LambdaSample.InOutFunction.Services;
 using Moq;
 using Xunit;
 
-namespace LambdaSample.Tests
+namespace LambdaSample.InOutFunction.Tests
 {
     public class SampleInOutFunctionHandlerCoreTest
     {
