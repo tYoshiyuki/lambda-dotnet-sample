@@ -20,6 +20,8 @@ namespace LambdaSample.PutDynamoDbEventFunction
             var id = DateTime.Now.ToString("yyyyMMddHHmmss");
             var user = new SampleUser { Id = id, Name = $"sample-user-{id}" };
             service.Create(user);
+
+            // TODO デバッグ用
             var result= service.Get(user.Id);
             LambdaLogger.Log("Result: " + JsonConvert.SerializeObject(result));
         }

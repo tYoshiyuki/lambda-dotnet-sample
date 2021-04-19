@@ -22,7 +22,7 @@ namespace LambdaSample.PutDynamoDbEventFunction
         protected override void ConfigureService(IServiceCollection services)
         {
             var dynamoDbConfig = Configuration.GetSection("DynamoDb");
-            var runLocalDynamoDb = dynamoDbConfig.GetValue<bool>("LocalMode");
+            var runLocalDynamoDb = dynamoDbConfig.GetValue<bool>("IsLocalMode");
 
             if (runLocalDynamoDb)
             {
