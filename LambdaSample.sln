@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.CommonLibrary"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.CommonLibrary.Tests", "LambdaSample.CommonLibrary.Tests\LambdaSample.CommonLibrary.Tests.csproj", "{6491FA9D-C382-405F-B319-C4DBF5917334}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.SampleInOutFunction", "LambdaSample.SampleInOutFunction\LambdaSample.SampleInOutFunction.csproj", "{B6D4136E-F9E4-4AB2-AE8C-55A9FEAB5002}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.SampleEventAndResponseFunction", "LambdaSample.SampleEventAndResponseFunction\LambdaSample.SampleEventAndResponseFunction.csproj", "{B6D4136E-F9E4-4AB2-AE8C-55A9FEAB5002}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.SampleInOutFunction.Tests", "LambdaSample.SampleInOutFunction.Tests\LambdaSample.SampleInOutFunction.Tests.csproj", "{4C8D871F-D111-44A9-9511-B55B5FDAC89D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.SampleEventAndResponseFunction.Tests", "LambdaSample.SampleEventAndResponseFunction.Tests\LambdaSample.SampleEventAndResponseFunction.Tests.csproj", "{4C8D871F-D111-44A9-9511-B55B5FDAC89D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LambdaSample.PutDynamoDbEventFunction", "LambdaSample.PutDynamoDbEventFunction\LambdaSample.PutDynamoDbEventFunction.csproj", "{DA5529DE-F0CC-4C89-AAFD-53E35B8AC0BC}"
 EndProject

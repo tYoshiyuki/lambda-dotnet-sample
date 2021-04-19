@@ -1,18 +1,18 @@
 using Amazon.Lambda.Core;
 using LambdaSample.CommonLibrary;
-using LambdaSample.SampleInOutFunction.Models;
-using LambdaSample.SampleInOutFunction.Services;
+using LambdaSample.SampleEventAndResponseFunction.Models;
+using LambdaSample.SampleEventAndResponseFunction.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
-namespace LambdaSample.SampleInOutFunction
+namespace LambdaSample.SampleEventAndResponseFunction
 {
     /// <summary>
     /// ÉTÉìÉvÉãÇÃLambdaä÷êîÇ≈Ç∑ÅB
     /// </summary>
-    public class SampleEventAndResponseFunction : EventAndResponseFunctionBase<SampleInOutFunctionInput, string>
+    public class SampleEventAndResponseFunction : EventAndResponseFunctionBase<SampleEventAndResponseFunctionInput, string>
     {
         public SampleEventAndResponseFunction()
         {
@@ -26,7 +26,7 @@ namespace LambdaSample.SampleInOutFunction
         protected override void ConfigureService(IServiceCollection services)
         {
             services.AddSingleton<IHelloService, HelloService>();
-            services.AddSingleton<IEventAndResponseFunctionHandler<SampleInOutFunctionInput, string>, SampleEventAndResponseFunctionHandler>();
+            services.AddSingleton<IEventAndResponseFunctionHandler<SampleEventAndResponseFunctionInput, string>, SampleEventAndResponseFunctionHandler>();
         }
     }
 }

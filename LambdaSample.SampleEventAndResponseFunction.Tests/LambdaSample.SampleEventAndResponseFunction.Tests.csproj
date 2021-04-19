@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LambdaSample.SampleInOutFunction\LambdaSample.SampleInOutFunction.csproj" />
+    <ProjectReference Include="..\LambdaSample.SampleEventAndResponseFunction\LambdaSample.SampleEventAndResponseFunction.csproj" />
   </ItemGroup>
 
 </Project>

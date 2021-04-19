@@ -38,12 +38,12 @@ If already installed check if new version is available.
 
 Execute unit tests
 ```
-    cd "LambdaSample.SampleInOutFunction/test/LambdaSample.SampleInOutFunction.Tests"
+    cd "LambdaSample.SampleEventAndResponseFunction/test/LambdaSample.SampleEventAndResponseFunction.Tests"
     dotnet test
 ```
 
 Deploy function to AWS Lambda
 ```
-    cd "LambdaSample.SampleInOutFunction/src/LambdaSample.SampleInOutFunction"
+    cd "LambdaSample.SampleEventAndResponseFunction/src/LambdaSample.SampleEventAndResponseFunction"
     dotnet lambda deploy-function
 ```

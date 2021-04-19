@@ -1,8 +1,8 @@
 using Amazon.Lambda.TestUtilities;
-using LambdaSample.SampleInOutFunction.Models;
+using LambdaSample.SampleEventAndResponseFunction.Models;
 using NUnit.Framework;
 
-namespace LambdaSample.SampleInOutFunction.Tests
+namespace LambdaSample.SampleEventAndResponseFunction.Tests
 {
     public class FunctionTest
     {
@@ -14,7 +14,7 @@ namespace LambdaSample.SampleInOutFunction.Tests
             var context = new TestLambdaContext();
 
             // Act
-            var result = function.EntryPoint(new SampleInOutFunctionInput { Key1 = "hello world" }, context);
+            var result = function.EntryPoint(new SampleEventAndResponseFunctionInput { Key1 = "hello world" }, context);
 
             // Assert
             Assert.That(result, Is.EqualTo("hello world And Hello World!"));

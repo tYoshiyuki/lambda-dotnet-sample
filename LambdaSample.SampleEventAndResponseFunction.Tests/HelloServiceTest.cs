@@ -1,7 +1,7 @@
-﻿using LambdaSample.SampleInOutFunction.Services;
+﻿using LambdaSample.SampleEventAndResponseFunction.Services;
 using NUnit.Framework;
 
-namespace LambdaSample.SampleInOutFunction.Tests
+namespace LambdaSample.SampleEventAndResponseFunction.Tests
 {
     public class HelloServiceTest
     {

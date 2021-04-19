@@ -1,12 +1,12 @@
 ﻿using Amazon.Lambda.TestUtilities;
-using LambdaSample.SampleInOutFunction.Models;
-using LambdaSample.SampleInOutFunction.Services;
+using LambdaSample.SampleEventAndResponseFunction.Models;
+using LambdaSample.SampleEventAndResponseFunction.Services;
 using Moq;
 using NUnit.Framework;
 
-namespace LambdaSample.SampleInOutFunction.Tests
+namespace LambdaSample.SampleEventAndResponseFunction.Tests
 {
-    public class SampleInOutFunctionHandlerTest
+    public class SampleEventAndResponseFunctionHandlerTest
     {
         [Test]
         public void Handle_正常系()
@@ -18,7 +18,7 @@ namespace LambdaSample.SampleInOutFunction.Tests
             var context = new TestLambdaContext();
 
             // Act
-            var result = handler.Handle(new SampleInOutFunctionInput {Key1 = "hello world"}, context);
+            var result = handler.Handle(new SampleEventAndResponseFunctionInput {Key1 = "hello world"}, context);
 
             // Assert
             Assert.That(result, Is.EqualTo("hello world And Hello Mock!"));
