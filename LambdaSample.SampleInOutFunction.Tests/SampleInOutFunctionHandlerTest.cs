@@ -14,7 +14,7 @@ namespace LambdaSample.SampleInOutFunction.Tests
             // Arrange
             var mock = new Mock<IHelloService>();
             mock.Setup(x => x.Greeting()).Returns("Hello Mock!");
-            var handler = new SampleInOutFunctionHandler(mock.Object);
+            var handler = new SampleEventAndResponseFunctionHandler(mock.Object);
             var context = new TestLambdaContext();
 
             // Act

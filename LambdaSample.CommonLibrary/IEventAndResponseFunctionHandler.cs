@@ -7,7 +7,7 @@ namespace LambdaSample.CommonLibrary
     /// </summary>
     /// <typeparam name="TInput">イベントの型</typeparam>
     /// <typeparam name="TOutput">レスポンスの型</typeparam>
-    public interface IInOutFunctionHandler<in TInput, out TOutput>
+    public interface IEventAndResponseFunctionHandler<in TInput, out TOutput>
     {
         TOutput Handle(TInput input, ILambdaContext context);
     }

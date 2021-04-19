@@ -8,10 +8,10 @@ namespace LambdaSample.SampleInOutFunction
     /// <summary>
     /// サンプルのLambda関数のハンドラーです。
     /// </summary>
-    public class SampleInOutFunctionHandler : IInOutFunctionHandler<SampleInOutFunctionInput, string>
+    public class SampleEventAndResponseFunctionHandler : IEventAndResponseFunctionHandler<SampleInOutFunctionInput, string>
     {
         private readonly IHelloService _service;
-        public SampleInOutFunctionHandler(IHelloService service)
+        public SampleEventAndResponseFunctionHandler(IHelloService service)
         {
             _service = service;
         }

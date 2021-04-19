@@ -6,13 +6,13 @@ using NUnit.Framework;
 
 namespace LambdaSample.CommonLibrary.Tests
 {
-    public class InOutFunctionBaseTest
+    public class EventAndResponseFunctionBaseTest
     {
         [Test]
         public void EntryPoint_正常系()
         {
             // Arrange
-            var function = new SampleInOutFunction();
+            var function = new SampleEventAndResponseFunction();
 
             // Act
             var result = function.EntryPoint("hello world.", new TestLambdaContext());
@@ -25,7 +25,7 @@ namespace LambdaSample.CommonLibrary.Tests
         public void EntryPoint_異常系_FunctionHandler無し()
         {
             // Arrange
-            var function = new SampleNoHandlerInOutFunction();
+            var function = new SampleNoHandlerEventAndResponseFunction();
 
             // Act・Assert
             Assert.That(() => function.EntryPoint("hello world.", new TestLambdaContext()),
@@ -37,7 +37,7 @@ namespace LambdaSample.CommonLibrary.Tests
         public void EntryPoint_異常系_FunctionHandler実行時に例外が発生()
         {
             // Arrange
-            var function = new SampleExceptionInOutFunction();
+            var function = new SampleExceptionEventAndResponseFunction();
 
             // Act・Assert
             Assert.That(() => function.EntryPoint("hello world.", new TestLambdaContext()),
@@ -49,23 +49,23 @@ namespace LambdaSample.CommonLibrary.Tests
     /// <summary>
     /// テスト用のLambda関数クラスです。
     /// </summary>
-    class SampleInOutFunction : InOutFunctionBase<string, string>
+    class SampleEventAndResponseFunction : EventAndResponseFunctionBase<string, string>
     {
-        public SampleInOutFunction()
+        public SampleEventAndResponseFunction()
         {
             InitializeFunction();
         }
 
         protected override void ConfigureService(IServiceCollection services)
         {
-            services.AddSingleton<IInOutFunctionHandler<string, string>, SampleInOutFunctionHandler>();
+            services.AddSingleton<IEventAndResponseFunctionHandler<string, string>, SampleEventAndResponseFunctionHandler>();
         }
     }
 
     /// <summary>
     /// テスト用のFunctionHandlerクラスです。
     /// </summary>
-    class SampleInOutFunctionHandler : IInOutFunctionHandler<string, string>
+    class SampleEventAndResponseFunctionHandler : IEventAndResponseFunctionHandler<string, string>
     {
         public string Handle(string input, ILambdaContext context)
         {
@@ -77,9 +77,9 @@ namespace LambdaSample.CommonLibrary.Tests
     /// <summary>
     /// テスト用 (異常系・FunctionHandlerが未登録) のLambda関数クラスです。
     /// </summary>
-    class SampleNoHandlerInOutFunction : InOutFunctionBase<string, string>
+    class SampleNoHandlerEventAndResponseFunction : EventAndResponseFunctionBase<string, string>
     {
-        public SampleNoHandlerInOutFunction()
+        public SampleNoHandlerEventAndResponseFunction()
         {
             InitializeFunction();
         }
@@ -92,7 +92,7 @@ namespace LambdaSample.CommonLibrary.Tests
     /// <summary>
     /// テスト用 (異常系) のFunctionHandlerクラスです。
     /// </summary>
-    class SampleExceptionInOutFunctionHandler : IInOutFunctionHandler<string, string>
+    class SampleExceptionEventAndResponseFunctionHandler : IEventAndResponseFunctionHandler<string, string>
     {
         public string Handle(string input, ILambdaContext context)
         {
@@ -103,16 +103,16 @@ namespace LambdaSample.CommonLibrary.Tests
     /// <summary>
     /// テスト用 (異常系・FunctionHandlerの実行時に例外が発生) のLambda関数クラスです。
     /// </summary>
-    class SampleExceptionInOutFunction : InOutFunctionBase<string, string>
+    class SampleExceptionEventAndResponseFunction : EventAndResponseFunctionBase<string, string>
     {
-        public SampleExceptionInOutFunction()
+        public SampleExceptionEventAndResponseFunction()
         {
             InitializeFunction();
         }
 
         protected override void ConfigureService(IServiceCollection services)
         {
-            services.AddTransient<IInOutFunctionHandler<string, string>, SampleExceptionInOutFunctionHandler>();
+            services.AddTransient<IEventAndResponseFunctionHandler<string, string>, SampleExceptionEventAndResponseFunctionHandler>();
         }
     }
 }

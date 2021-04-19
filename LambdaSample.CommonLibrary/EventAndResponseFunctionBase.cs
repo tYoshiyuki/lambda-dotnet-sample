@@ -10,7 +10,7 @@ namespace LambdaSample.CommonLibrary
     /// </summary>
     /// <typeparam name="TInput">イベントの型</typeparam>
     /// <typeparam name="TOutput">レスポンスの型</typeparam>
-    public abstract class InOutFunctionBase<TInput, TOutput> : AbstractFunctionBase
+    public abstract class EventAndResponseFunctionBase<TInput, TOutput> : AbstractFunctionBase
     {
         /// <summary>
         /// 関数のエントリーポイントです。
@@ -23,7 +23,7 @@ namespace LambdaSample.CommonLibrary
             LambdaLogger.Log("Start EntryPoint.");
 
             using var scope = ServiceProvider.CreateScope();
-            var handler = scope.ServiceProvider.GetService<IInOutFunctionHandler<TInput, TOutput>>();
+            var handler = scope.ServiceProvider.GetService<IEventAndResponseFunctionHandler<TInput, TOutput>>();
 
             if (handler == null)
             {

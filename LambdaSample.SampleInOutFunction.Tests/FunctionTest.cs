@@ -10,7 +10,7 @@ namespace LambdaSample.SampleInOutFunction.Tests
         public void FunctionHandler_正常系()
         {
             // Arrange
-            var function = new SampleInOutFunction();
+            var function = new SampleEventAndResponseFunction();
             var context = new TestLambdaContext();
 
             // Act
