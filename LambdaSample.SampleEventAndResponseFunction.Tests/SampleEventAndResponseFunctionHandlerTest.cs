@@ -18,7 +18,7 @@ namespace LambdaSample.SampleEventAndResponseFunction.Tests
             var context = new TestLambdaContext();
 
             // Act
-            var result = handler.Handle(new SampleEventAndResponseFunctionInput {Key1 = "hello world"}, context);
+            var result = handler.Handle(new SampleEventAndResponseFunctionInput { Key1 = "hello world" }, context);
 
             // Assert
             Assert.That(result, Is.EqualTo("hello world And Hello Mock!"));

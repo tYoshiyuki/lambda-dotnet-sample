@@ -1,3 +1,8 @@
+ï»¿using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 using Amazon.KinesisFirehose;
 using Amazon.KinesisFirehose.Model;
 using Amazon.Lambda.Core;
@@ -6,11 +11,6 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using Newtonsoft.Json;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -24,16 +24,16 @@ namespace LambdaFirehoseSample
         private readonly string _serviceURL = "http://localhost:4573";
 
         /// <summary>
-        /// Kinesis Firehose‚Öƒf[ƒ^‚ğ‘‚«‚ŞŠÖ”‚Å‚·
-        /// ƒ[ƒJƒ‹ŠJ”­ŠÂ‹«‚Æ‚µ‚Ä localStack ‚ğg—p‚µ‚Ä‚¢‚Ü‚·
+        /// Kinesis Firehoseã¸ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€é–¢æ•°ã§ã™
+        /// ãƒ­ãƒ¼ã‚«ãƒ«é–‹ç™ºç’°å¢ƒã¨ã—ã¦ localStack ã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™
         /// </summary>
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
         public async Task<string> FunctionHandler(FunctionInput input, ILambdaContext context)
         {
-            #region ƒ[ƒJƒ‹ŠJ”­—p‚ÌƒR[ƒh
-            // S3 ‚Ìì¬
+            #region ãƒ­ãƒ¼ã‚«ãƒ«é–‹ç™ºç”¨ã®ã‚³ãƒ¼ãƒ‰
+            // S3 ã®ä½œæˆ
             var creds = new BasicAWSCredentials("dummy", "dummy");
             var s3Client = new AmazonS3Client(creds, new AmazonS3Config
             {
@@ -52,7 +52,7 @@ namespace LambdaFirehoseSample
                 });
             }
 
-            // Kinesis Firehose ‚Ìì¬
+            // Kinesis Firehose ã®ä½œæˆ
             var request = new CreateDeliveryStreamRequest
             {
                 DeliveryStreamName = _deliveryStream,
@@ -82,7 +82,7 @@ namespace LambdaFirehoseSample
                 Data = new MemoryStream(Encoding.UTF8.GetBytes(data))
             };
 
-            // Kinesis Firehose ‚É‘Î‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+            // Kinesis Firehose ã«å¯¾ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
             var res = await client.PutRecordAsync(_deliveryStream, record);
             if (res.HttpStatusCode == HttpStatusCode.OK)
             {

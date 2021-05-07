@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace LambdaSample.PutDynamoDbEventFunction
 {
-    public class PutDynamoDbEventFunctionHandler: IEventFunctionHandler<PutDynamoDbEventFunctionInput>
+    public class PutDynamoDbEventFunctionHandler : IEventFunctionHandler<PutDynamoDbEventFunctionInput>
     {
         private readonly ISampleUserService service;
         public PutDynamoDbEventFunctionHandler(ISampleUserService service)
@@ -22,7 +22,7 @@ namespace LambdaSample.PutDynamoDbEventFunction
             service.Create(user);
 
             // TODO デバッグ用
-            var result= service.Get(user.Id);
+            var result = service.Get(user.Id);
             LambdaLogger.Log("Result: " + JsonConvert.SerializeObject(result));
         }
     }

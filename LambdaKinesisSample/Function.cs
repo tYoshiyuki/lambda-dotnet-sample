@@ -1,12 +1,12 @@
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
-using Amazon.Lambda.Core;
-using Amazon.Lambda.KinesisEvents;
-using System;
+ï»¿using System;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Amazon.Kinesis;
+using Amazon.Kinesis.Model;
+using Amazon.Lambda.Core;
+using Amazon.Lambda.KinesisEvents;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -21,8 +21,8 @@ namespace LambdaKinesisSample
         private readonly string _serviceURL = "http://localhost:4567/";
 
         /// <summary>
-        /// Kinesis Stream ‚©‚çƒCƒxƒ“ƒg‚ğó‚¯æ‚èAKinesis Stream‚Öƒf[ƒ^‚ğ‘‚«‚ŞŠÖ”‚Å‚·
-        /// ƒ[ƒJƒ‹ŠJ”­ŠÂ‹«‚Æ‚µ‚Ä Kinesalite ‚ğg—p‚µ‚Ä‚¢‚Ü‚·
+        /// Kinesis Stream ã‹ã‚‰ã‚¤ãƒ™ãƒ³ãƒˆã‚’å—ã‘å–ã‚Šã€Kinesis Streamã¸ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€é–¢æ•°ã§ã™
+        /// ãƒ­ãƒ¼ã‚«ãƒ«é–‹ç™ºç’°å¢ƒã¨ã—ã¦ Kinesalite ã‚’ä½¿ç”¨ã—ã¦ã„ã¾ã™
         /// </summary>
         /// <param name="kinesisEvent"></param>
         /// <param name="context"></param>
@@ -31,7 +31,7 @@ namespace LambdaKinesisSample
         {
             context.Logger.LogLine($"Beginning to process {kinesisEvent.Records.Count} records...");
 
-            // Kinesis Event‚©‚çƒŒƒR[ƒh‚ğæ“¾‚µAƒ‹[ƒvˆ—‚ğs‚¤
+            // Kinesis Eventã‹ã‚‰ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã—ã€ãƒ«ãƒ¼ãƒ—å‡¦ç†ã‚’è¡Œã†
             foreach (var record in kinesisEvent.Records)
             {
                 context.Logger.LogLine($"Event ID: {record.EventId}");
@@ -42,14 +42,16 @@ namespace LambdaKinesisSample
                 context.Logger.LogLine(recordData);
             }
 
-            #region ƒ[ƒJƒ‹ŠJ”­—p‚ÌƒR[ƒh
-            // Kinesis Stream ‚Ìì¬, ’Êí‚Í AWSƒRƒ“ƒ\[ƒ‹ ‚æ‚èì¬‚·‚é
-            var request = new CreateStreamRequest {
+            #region ãƒ­ãƒ¼ã‚«ãƒ«é–‹ç™ºç”¨ã®ã‚³ãƒ¼ãƒ‰
+            // Kinesis Stream ã®ä½œæˆ, é€šå¸¸ã¯ AWSã‚³ãƒ³ã‚½ãƒ¼ãƒ« ã‚ˆã‚Šä½œæˆã™ã‚‹
+            var request = new CreateStreamRequest
+            {
                 ShardCount = 1,
                 StreamName = _streamName
             };
 
-            var client = new AmazonKinesisClient(new AmazonKinesisConfig {
+            var client = new AmazonKinesisClient(new AmazonKinesisConfig
+            {
                 ServiceURL = _serviceURL
             });
 
@@ -60,7 +62,7 @@ namespace LambdaKinesisSample
             }
             #endregion
 
-            // Kinesis Stream ‚É‘Î‚µ‚Äƒf[ƒ^‚ğ‘‚«‚Ş
+            // Kinesis Stream ã«å¯¾ã—ã¦ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€
             foreach (var i in Enumerable.Range(1, 10))
             {
                 using (var memory = new MemoryStream(Encoding.UTF8.GetBytes($"Put Data:{i}")))

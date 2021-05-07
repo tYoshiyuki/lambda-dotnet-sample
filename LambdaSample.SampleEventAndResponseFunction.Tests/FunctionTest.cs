@@ -1,4 +1,4 @@
-using Amazon.Lambda.TestUtilities;
+﻿using Amazon.Lambda.TestUtilities;
 using LambdaSample.SampleEventAndResponseFunction.Models;
 using NUnit.Framework;
 

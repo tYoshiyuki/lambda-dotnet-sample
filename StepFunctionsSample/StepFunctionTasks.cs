@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -26,7 +26,7 @@ namespace StepFunctionsSample
         {
             state.Message = "Hello";
 
-            if(!string.IsNullOrEmpty(state.Name))
+            if (!string.IsNullOrEmpty(state.Name))
             {
                 state.Message += " " + state.Name;
             }

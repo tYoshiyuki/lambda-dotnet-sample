@@ -1,4 +1,4 @@
-using Amazon.Lambda.Core;
+ï»¿using Amazon.Lambda.Core;
 using LambdaSample.CommonLibrary;
 using LambdaSample.SampleEventAndResponseFunction.Models;
 using LambdaSample.SampleEventAndResponseFunction.Services;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace LambdaSample.SampleEventAndResponseFunction
 {
     /// <summary>
-    /// ƒTƒ“ƒvƒ‹‚ÌLambdaŠÖ”‚Å‚·B
+    /// ã‚µãƒ³ãƒ—ãƒ«ã®Lambdaé–¢æ•°ã§ã™ã€‚
     /// </summary>
     public class SampleEventAndResponseFunction : EventAndResponseFunctionBase<SampleEventAndResponseFunctionInput, string>
     {
@@ -20,7 +20,7 @@ namespace LambdaSample.SampleEventAndResponseFunction
         }
 
         /// <summary>
-        /// ƒT[ƒrƒX‚Ìİ’è‚ğs‚¢‚Ü‚·B
+        /// ã‚µãƒ¼ãƒ“ã‚¹ã®è¨­å®šã‚’è¡Œã„ã¾ã™ã€‚
         /// </summary>
         /// <param name="services">services</param>
         protected override void ConfigureService(IServiceCollection services)

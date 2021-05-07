@@ -1,4 +1,4 @@
-using Amazon.DynamoDBv2;
+﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.Lambda.Core;
 using LambdaSample.CommonLibrary;
@@ -18,7 +18,7 @@ namespace LambdaSample.PutDynamoDbEventFunction
         {
             InitializeFunction();
         }
-        
+
         protected override void ConfigureService(IServiceCollection services)
         {
             var dynamoDbConfig = Configuration.GetSection("DynamoDb");
